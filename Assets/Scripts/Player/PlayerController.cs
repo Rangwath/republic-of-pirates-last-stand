@@ -1,11 +1,8 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
-
-    public static Action<Vector2> OnFireCannons;
 
     [SerializeField] private float cannonsCooldown = 1f;
 
@@ -15,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private FrameInput frameInput;
     private Movement movement;
     private Rigidbody2D rigidBody;
+    private Cannon[] cannons;
 
     private void Awake()
     {
@@ -23,6 +21,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         movement = GetComponent<Movement>();
         rigidBody = GetComponent<Rigidbody2D>();
+        cannons = GetComponentsInChildren<Cannon>();
     }
 
     private void Update()
@@ -46,7 +45,10 @@ public class PlayerController : MonoBehaviour
     {
         if (frameInput.Fire && Time.time >= cannonsReadyTime)
         {
-            OnFireCannons?.Invoke(rigidBody.velocity);
+            foreach (Cannon cannon in cannons)
+            {
+                cannon.Fire(rigidBody.velocity, gameObject.layer);
+            }
             cannonsReadyTime = Time.time + cannonsCooldown;
         }
     }

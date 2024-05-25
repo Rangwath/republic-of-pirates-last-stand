@@ -5,22 +5,10 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float cannonForce = 10f;
     [SerializeField] private CannonBall cannonBallPrefab;
 
-    private void OnEnable()
+    public void Fire(Vector2 shipVelocity, LayerMask shipLayerMask)
     {
-        PlayerController.OnFireCannons += Fire;
-    }
-
-    private void OnDisable()
-    {
-        PlayerController.OnFireCannons -= Fire;
-    }
-
-    private void Fire(Vector2 shipVelocity)
-    {
-        Debug.Log("FIRE! " + this.gameObject.name);
-
         CannonBall cannonBall = Instantiate(cannonBallPrefab, transform.position, transform.rotation);
-
+        cannonBall.gameObject.layer = shipLayerMask;
         cannonBall.Fire(shipVelocity, cannonForce);
     }
 }
