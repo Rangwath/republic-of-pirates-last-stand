@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance;
+    // Singleton instance
+    public static PlayerController Instance { get; private set; }
+
+    public static event Action OnPlayerDeath;
 
     [SerializeField] private float cannonsCooldown = 1f;
 
@@ -12,16 +16,37 @@ public class PlayerController : MonoBehaviour
     private FrameInput frameInput;
     private Movement movement;
     private Rigidbody2D rigidBody;
+    private Health health;
     private Cannon[] cannons;
 
     private void Awake()
     {
-        if (Instance == null) { Instance = this; }
+        // Singleton pattern
+        if (Instance == null) 
+        { 
+            Instance = this; 
+        }
+        else if (Instance != this)
+        {
+            Debug.LogWarning("Another instance detected and destroyed");
+            Destroy(gameObject);
+        }
 
         playerInput = GetComponent<PlayerInput>();
         movement = GetComponent<Movement>();
         rigidBody = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
         cannons = GetComponentsInChildren<Cannon>();
+    }
+
+    private void OnEnable()
+    {
+        health.OnDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        health.OnDeath -= HandlePlayerDeath;
     }
 
     private void Update()
@@ -51,5 +76,11 @@ public class PlayerController : MonoBehaviour
             }
             cannonsReadyTime = Time.time + cannonsCooldown;
         }
+    }
+
+    private void HandlePlayerDeath()
+    {
+        print(gameObject.name + " : Died");
+        OnPlayerDeath?.Invoke();
     }
 }

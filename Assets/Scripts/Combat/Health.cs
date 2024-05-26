@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamagable
 {
+    public event Action OnDeath;
+
     [SerializeField] private int startingHealth = 5;
 
     private int currentHealth;
@@ -19,7 +22,7 @@ public class Health : MonoBehaviour, IDamagable
 
         if (currentHealth <= 0) 
         {
-            Debug.Log(gameObject.name + " : Destroyed");
+            OnDeath?.Invoke();
             Destroy(gameObject);
         }
     }

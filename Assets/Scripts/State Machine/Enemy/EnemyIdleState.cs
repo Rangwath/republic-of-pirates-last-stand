@@ -19,6 +19,12 @@ public class EnemyIdleState : EnemyBaseState
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
         }
+        else
+        {
+            Debug.Log(stateMachine.gameObject.name + " : Player NOT in Detection Range, Switching to EnemyMovingToTargetState");
+            stateMachine.SwitchState(new EnemyMovingToTargetState(stateMachine));
+            return;
+        }
     }
 
     public override void Exit()
