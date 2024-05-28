@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
 
     public static event Action OnPlayerDeath;
+    public static event Action<int> OnPlayerHealthChanged;
 
     [SerializeField] private float cannonsCooldown = 1f;
 
@@ -42,11 +43,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         health.OnDeath += HandlePlayerDeath;
+        health.OnHealthChanged += HandlePlayerHealthChanged;
     }
 
     private void OnDisable()
     {
         health.OnDeath -= HandlePlayerDeath;
+        health.OnHealthChanged -= HandlePlayerHealthChanged;
     }
 
     private void Update()
@@ -82,5 +85,10 @@ public class PlayerController : MonoBehaviour
     {
         print(gameObject.name + " : Died");
         OnPlayerDeath?.Invoke();
+    }
+
+    private void HandlePlayerHealthChanged(int newPlayerHealth)
+    {
+        OnPlayerHealthChanged?.Invoke(newPlayerHealth);
     }
 }
