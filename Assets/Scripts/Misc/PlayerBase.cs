@@ -7,6 +7,7 @@ public class PlayerBase : MonoBehaviour
     public static PlayerBase Instance { get; private set; }
 
     public static event Action OnPlayerBaseDestroyed;
+    public static event Action<int> OnPlayerBaseHealthChanged;
 
     private Health health;
 
@@ -29,16 +30,23 @@ public class PlayerBase : MonoBehaviour
     private void OnEnable()
     {
         health.OnDeath += HandleBaseDestroyed;
+        health.OnHealthChanged += HandleBaseHealthChanged;
     }
 
     private void OnDisable()
     {
         health.OnDeath -= HandleBaseDestroyed;
+        health.OnHealthChanged -= HandleBaseHealthChanged;
     }
 
     private void HandleBaseDestroyed()
     {
         print(gameObject.name + " : Destroyed");
         OnPlayerBaseDestroyed?.Invoke();
+    }
+
+    private void HandleBaseHealthChanged(int newBaseHealth)
+    {
+        OnPlayerBaseHealthChanged?.Invoke(newBaseHealth);
     }
 }

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Slider playerHealthBarSlider;
+    [SerializeField] private Slider playerBaseHealthBarSlider;
 
     private int currentScore = 0;
 
@@ -38,7 +39,10 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.OnPlayerDeath += HandleEnemyWin;
         PlayerController.OnPlayerHealthChanged += UpdatePlayerHealth;
+        
         PlayerBase.OnPlayerBaseDestroyed += HandleEnemyWin;
+        PlayerBase.OnPlayerBaseHealthChanged += UpdatePlayerBaseHealth;
+        
         Health.OnScoreUpdated += UpdateScore;
     }
 
@@ -46,7 +50,10 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.OnPlayerDeath -= HandleEnemyWin;
         PlayerController.OnPlayerHealthChanged -= UpdatePlayerHealth;
+        
         PlayerBase.OnPlayerBaseDestroyed -= HandleEnemyWin;
+        PlayerBase.OnPlayerBaseHealthChanged -= UpdatePlayerBaseHealth;
+        
         Health.OnScoreUpdated -= UpdateScore;
     }
 
@@ -66,5 +73,10 @@ public class GameManager : MonoBehaviour
     private void UpdatePlayerHealth(int newPlayerHealth)
     {
         playerHealthBarSlider.value = newPlayerHealth;
+    }
+
+    private void UpdatePlayerBaseHealth(int newBaseHealth)
+    {
+        playerBaseHealthBarSlider.value = newBaseHealth;
     }
 }
