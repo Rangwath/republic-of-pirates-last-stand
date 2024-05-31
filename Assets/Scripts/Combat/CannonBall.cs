@@ -29,13 +29,24 @@ public class CannonBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        IHitable hitable = other.gameObject.GetComponent<IHitable>();
-        hitable?.TakeHit();
+        bool hasHit = false;
+
+        // Get the position of the collision
+        Vector2 hitPosition = other.ClosestPoint(transform.position);
+
+        foreach (IHitable hitable in other.gameObject.GetComponents<IHitable>())
+        {
+            hitable?.TakeHit(hitPosition);
+            hasHit = true;
+        }
+
+        // IHitable hitable = other.gameObject.GetComponent<IHitable>();
+        // hitable?.TakeHit(hitPosition);
 
         IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
         damagable?.TakeDamage(damageAmount);
 
-        if (hitable != null)
+        if (hasHit)
         {
             Destroy(gameObject);
         }

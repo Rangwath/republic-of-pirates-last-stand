@@ -26,15 +26,15 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         Cannon.OnCannonFire += Cannon_OnCannonFire;
-        Health.OnWoodImpact += Health_OnWoodImpact;
-        Health.OnStoneImpact += Health_OnStoneImpact;
+        Hitable.OnWoodHit += Health_OnWoodImpact;
+        Hitable.OnStoneHit += Health_OnStoneImpact;
     }
 
     private void OnDisable()
     {
         Cannon.OnCannonFire -= Cannon_OnCannonFire;
-        Health.OnWoodImpact -= Health_OnWoodImpact;
-        Health.OnStoneImpact -= Health_OnStoneImpact;
+        Hitable.OnWoodHit -= Health_OnWoodImpact;
+        Hitable.OnStoneHit -= Health_OnStoneImpact;
     }
 
     private void PlaySoundSO(SoundSO soundSO)

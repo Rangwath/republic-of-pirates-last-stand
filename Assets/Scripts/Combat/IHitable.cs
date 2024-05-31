@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IHitable
 {
-    void TakeHit();
+    void TakeHit(Vector2 hitPosition);
 }

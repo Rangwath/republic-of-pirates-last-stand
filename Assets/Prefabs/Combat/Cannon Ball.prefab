@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3955f0aaea109274cb39e5a5fc1b7527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
   timeToLive: 1.5
 --- !u!1 &6264759395635487590
 GameObject:
@@ -183,7 +182,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: dac2e79aa01df59469485f02d6194d6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -4,9 +4,6 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamagable
 {
     public static event Action<int> OnScoreUpdated;
-    public static event Action OnWoodImpact;
-    public static event Action OnStoneImpact;
-
     public event Action OnDeath;
     public event Action<int> OnHealthChanged;
 
@@ -34,27 +31,14 @@ public class Health : MonoBehaviour, IDamagable
         }
     }
 
-    public void TakeHit()
+    public void TakeHit(Vector2 hitPosition)
     {
-        if (IsGameObjectInLayerMask(gameObject, GameManager.Instance.WoodImpactLayer))
-        {
-            OnWoodImpact?.Invoke();
-        }
-        if (IsGameObjectInLayerMask(gameObject, GameManager.Instance.StoneImpactLayer))
-        {
-            OnStoneImpact?.Invoke();
-        }
+        // Health only takes damage, other Hit related processes should be in Hitable
     }
 
     private void SetCurrentHealth(int newCurrentHealth)
     {
         currentHealth = newCurrentHealth;
         OnHealthChanged?.Invoke(currentHealth);
-    }
-
-    public bool IsGameObjectInLayerMask(GameObject gameObject, LayerMask layerMask)
-    {
-        // Convert the GameObject's layer to a bitmask and check if it matches the LayerMask
-        return ((layerMask.value & (1 << gameObject.layer)) > 0);
     }
 }
