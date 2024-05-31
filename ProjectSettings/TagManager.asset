@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 3191059339
+    locked: 0
+  - name: Enemy
+    uniqueID: 743570005
+    locked: 0
+  - name: Player
+    uniqueID: 908529707
+    locked: 0
+  - name: PlayerBase
+    uniqueID: 1053499571
+    locked: 0
+  - name: CannonBall
+    uniqueID: 3445228829
+    locked: 0
+  - name: VFX
+    uniqueID: 3506535703
+    locked: 0
