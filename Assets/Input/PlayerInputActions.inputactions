@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "FireRight",
                     "type": "Button",
                     "id": "10541fc4-6e66-4809-b6a3-47bcae83d946",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FireLeft",
+                    "type": "Button",
+                    "id": "a4efb887-e764-45dc-9a5a-fdc86c3c6472",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -81,8 +90,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Arrows",
-                    "id": "b14cd2ca-0feb-4659-b500-1a6cf86bfbf6",
+                    "name": "Gamepad",
+                    "id": "2feef1f2-0d06-434d-8b3c-eeac6ce74356",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -93,8 +102,8 @@
                 },
                 {
                     "name": "up",
-                    "id": "2b236cb0-d34c-466a-9234-95d36ad071fd",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "3131b026-b3c1-40d5-b1f9-bbcd5ec9cb8c",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -104,8 +113,8 @@
                 },
                 {
                     "name": "down",
-                    "id": "3f621de0-bb26-4dd4-9493-37ff689ae9dc",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "63cde8ee-6c2a-4ea9-a725-a73b3efd9d96",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -115,8 +124,8 @@
                 },
                 {
                     "name": "left",
-                    "id": "da152e1d-aa3c-4d30-9282-99e550cc662e",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "ad6ca329-8e3c-434e-857b-b6c129b46357",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -126,8 +135,8 @@
                 },
                 {
                     "name": "right",
-                    "id": "040666a9-85c4-44cc-8f47-2a7aff01bb4f",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "e672162b-6ab6-40bb-a259-3bd7a979a91f",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -138,11 +147,44 @@
                 {
                     "name": "",
                     "id": "1484eca1-a38a-4f93-b24d-1acc2a3bd51a",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "FireRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5c77c4c-1ab9-483c-b9d5-d038d0e14411",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21a38894-ecaf-4aaa-b943-935f2ef74064",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20331fd8-1932-4a9c-bf2e-58fb892015f8",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

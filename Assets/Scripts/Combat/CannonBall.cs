@@ -40,9 +40,6 @@ public class CannonBall : MonoBehaviour
             hasHit = true;
         }
 
-        // IHitable hitable = other.gameObject.GetComponent<IHitable>();
-        // hitable?.TakeHit(hitPosition);
-
         IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
         damagable?.TakeDamage(damageAmount);
 

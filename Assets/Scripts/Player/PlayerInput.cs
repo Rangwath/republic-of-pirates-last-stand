@@ -8,14 +8,16 @@ public class PlayerInput : MonoBehaviour
     private PlayerInputActions playerInputActions;
 
     private InputAction move;
-    private InputAction fire;
+    private InputAction fireRight;
+    private InputAction fireLeft;
 
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
 
         move = playerInputActions.Player.Move;
-        fire = playerInputActions.Player.Fire;
+        fireRight = playerInputActions.Player.FireRight;
+        fireLeft = playerInputActions.Player.FireLeft;
     }
 
     private void OnEnable()
@@ -38,7 +40,8 @@ public class PlayerInput : MonoBehaviour
         return new FrameInput
         {
             Move = move.ReadValue<Vector2>(),
-            Fire = fire.WasPressedThisFrame()
+            FireRight = fireRight.WasPressedThisFrame(),
+            FireLeft = fireLeft.WasPerformedThisFrame()
         };
     }
 }
@@ -46,5 +49,6 @@ public class PlayerInput : MonoBehaviour
 public struct FrameInput
 {
     public Vector2 Move;
-    public bool Fire;
+    public bool FireRight;
+    public bool FireLeft;
 }

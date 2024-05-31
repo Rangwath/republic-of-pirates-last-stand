@@ -9,16 +9,19 @@ public class PlayerController : MonoBehaviour
     public static event Action OnPlayerDeath;
     public static event Action<int> OnPlayerHealthChanged;
 
-    [SerializeField] private float cannonsCooldown = 1f;
+    [SerializeField] private float rightCannonsCooldown = 1f;
+    [SerializeField] private float leftCannonsCooldown = 1f;
+    [SerializeField] private Cannon[] rightCannons;
+    [SerializeField] private Cannon[] leftCannons;
 
-    private float cannonsReadyTime = 0f;
+    private float rightCannonsReadyTime = 0f;
+    private float leftCannonsReadyTime = 0f;
 
     private PlayerInput playerInput;
     private FrameInput frameInput;
     private Movement movement;
     private Rigidbody2D rigidBody;
     private Health health;
-    private Cannon[] cannons;
 
     private void Awake()
     {
@@ -37,7 +40,6 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<Movement>();
         rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
-        cannons = GetComponentsInChildren<Cannon>();
     }
 
     private void OnEnable()
@@ -71,13 +73,22 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessFiring()
     {
-        if (frameInput.Fire && Time.time >= cannonsReadyTime)
+        if (frameInput.FireRight && Time.time >= rightCannonsReadyTime)
         {
-            foreach (Cannon cannon in cannons)
+            foreach (Cannon cannon in rightCannons)
             {
                 cannon.Fire(rigidBody.velocity, gameObject.layer);
             }
-            cannonsReadyTime = Time.time + cannonsCooldown;
+            rightCannonsReadyTime = Time.time + rightCannonsCooldown;
+        }
+        
+        if (frameInput.FireLeft && Time.time >= leftCannonsReadyTime)
+        {
+            foreach (Cannon cannon in leftCannons)
+            {
+                cannon.Fire(rigidBody.velocity, gameObject.layer);
+            }
+            leftCannonsReadyTime = Time.time + leftCannonsCooldown;
         }
     }
 
