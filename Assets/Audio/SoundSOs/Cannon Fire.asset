@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe49deb29635894bb75fdfe55ab4947, type: 3}
+  m_Name: Cannon Fire
+  m_EditorClassIdentifier: 
+  Clip: {fileID: 8300000, guid: bfaebc50b00856c48a3a13d4c7e84de2, type: 3}
+  Loop: 0
+  RandomizePitch: 1
+  RandomPitchRangeModifier: 0.1
+  Volume: 0.5
+  Pitch: 1

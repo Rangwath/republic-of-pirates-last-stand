@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider playerHealthBarSlider;
     [SerializeField] private Slider playerBaseHealthBarSlider;
 
+    [field: SerializeField] public LayerMask WoodImpactLayer { get; private set; }
+    [field: SerializeField] public LayerMask StoneImpactLayer { get; private set; }
+
     private int currentScore = 0;
 
     private void Awake()

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d10366ee491a044498831042235f041, type: 3}
+  m_Name: Sounds Collection
+  m_EditorClassIdentifier: 
+  CannonFire: {fileID: 11400000, guid: 3ef7409ca201976438dc93b945d8cfc0, type: 2}
+  CannonBallImpactWood: {fileID: 11400000, guid: 7bdb70f1d49f0b24d97b9444e1b1ef72, type: 2}
+  CannonBallImpactStone: {fileID: 11400000, guid: e0fe44cd9ad32cc458cdbdce8a202df0, type: 2}

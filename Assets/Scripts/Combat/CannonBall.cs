@@ -29,8 +29,6 @@ public class CannonBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit : " + other.gameObject.name); 
-
         IHitable hitable = other.gameObject.GetComponent<IHitable>();
         hitable?.TakeHit();
 
