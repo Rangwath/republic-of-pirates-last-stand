@@ -7,14 +7,15 @@ public class Health : MonoBehaviour, IDamagable
     public event Action OnDeath;
     public event Action<int> OnHealthChanged;
 
-    [SerializeField] private int startingHealth = 100;
+    [field: SerializeField] public int StartingHealth { get; private set; }
+    
     [SerializeField] private int scoreOnDeath = 10;
 
     private int currentHealth;
 
     private void Start()
     {
-        SetCurrentHealth(startingHealth);
+        SetCurrentHealth(StartingHealth);
     }
 
     public void TakeDamage(int damageAmount)

@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e838f697ed8e044ad27696107912a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 200
+  <StartingHealth>k__BackingField: 200
   scoreOnDeath: 0
 --- !u!61 &47464723
 BoxCollider2D:
@@ -982,15 +982,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf357cb7b0a6cb4b975fabb924d77ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 819608100}
-  playerHealthBarSlider: {fileID: 923068815}
-  playerBaseHealthBarSlider: {fileID: 2065662113}
   <WoodImpactLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 136
   <StoneImpactLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 256
+  scoreText: {fileID: 819608100}
+  playerHealthBarSlider: {fileID: 923068815}
+  playerBaseHealthBarSlider: {fileID: 2065662113}
 --- !u!4 &434472992
 Transform:
   m_ObjectHideFlags: 0
@@ -3640,6 +3640,7 @@ GameObject:
   - component: {fileID: 1781280962}
   - component: {fileID: 1781280970}
   - component: {fileID: 1781280971}
+  - component: {fileID: 1781280972}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -3659,7 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e838f697ed8e044ad27696107912a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  <StartingHealth>k__BackingField: 100
   scoreOnDeath: 10
 --- !u!114 &1781280963
 MonoBehaviour:
@@ -3870,6 +3871,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 2069793360}
+--- !u!114 &1781280972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781280961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb352f196f045a43956f3fd0b706208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowDamageSprite: {fileID: 21300000, guid: bc9071747a896834b82510e5d424842f, type: 3}
+  highDamageSprite: {fileID: 21300000, guid: 90b4e8c57c1446441a12aa687de4a690, type: 3}
 --- !u!1 &1798444739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4420,6 +4435,7 @@ GameObject:
   - component: {fileID: 1911656202}
   - component: {fileID: 1911656203}
   - component: {fileID: 1911656204}
+  - component: {fileID: 1911656205}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -4569,7 +4585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e838f697ed8e044ad27696107912a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  <StartingHealth>k__BackingField: 100
   scoreOnDeath: 0
 --- !u!114 &1911656204
 MonoBehaviour:
@@ -4584,6 +4600,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 4193568402977078415, guid: c706a66dd717dc3468317625bf012a87, type: 3}
+--- !u!114 &1911656205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911656196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb352f196f045a43956f3fd0b706208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowDamageSprite: {fileID: 21300000, guid: c34e4c3d42525d44e9ff8cefbe7abfda, type: 3}
+  highDamageSprite: {fileID: 21300000, guid: 48a3e34b6cdc0d041931bec3f8925a4a, type: 3}
 --- !u!1 &1950826455
 GameObject:
   m_ObjectHideFlags: 0

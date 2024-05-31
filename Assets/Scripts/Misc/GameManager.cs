@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
 
     public static event Action OnEnemyWin;
 
+    [field: SerializeField] public LayerMask WoodImpactLayer { get; private set; }
+    [field: SerializeField] public LayerMask StoneImpactLayer { get; private set; }
+
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Slider playerHealthBarSlider;
     [SerializeField] private Slider playerBaseHealthBarSlider;
-
-    [field: SerializeField] public LayerMask WoodImpactLayer { get; private set; }
-    [field: SerializeField] public LayerMask StoneImpactLayer { get; private set; }
 
     private int currentScore = 0;
 
