@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+public class GameMenuManager : MonoBehaviour
 {
     // Singleton instance
-    public static MenuManager Instance { get; private set; }
+    public static GameMenuManager Instance { get; private set; }
+
+    private const string MAIN_MENU_SCENE_NAME = "MainMenuScene";
 
     [SerializeField] private GameObject endGamePanel;
 
@@ -36,6 +38,11 @@ public class MenuManager : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(MAIN_MENU_SCENE_NAME);
     }
 
     private void DisplayEndGamePanel()

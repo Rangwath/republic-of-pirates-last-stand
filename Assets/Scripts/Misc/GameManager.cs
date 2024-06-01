@@ -14,10 +14,15 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public LayerMask StoneImpactLayer { get; private set; }
 
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text finalScoreText;
+    [SerializeField] private TMP_Text finalTimerText;
     [SerializeField] private Slider playerHealthBarSlider;
     [SerializeField] private Slider playerBaseHealthBarSlider;
 
     private int currentScore = 0;
+    private float startTime = 0;
+    private bool hasGameEnded = false;
 
     private void Awake()
     {
@@ -36,6 +41,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateScore(0);
+        startTime = Time.time;
+    }
+
+    private void Update()
+    {
+        if (!hasGameEnded)
+        {
+            UpdateTimer();
+        }
     }
 
     private void OnEnable()
@@ -63,6 +77,10 @@ public class GameManager : MonoBehaviour
     private void HandleEnemyWin()
     {
         Debug.Log("Enemies Won");
+        hasGameEnded = true;
+        finalScoreText.text = scoreText.text;
+        finalTimerText.text = timerText.text;
+
         OnEnemyWin?.Invoke();
     }
 
@@ -81,5 +99,21 @@ public class GameManager : MonoBehaviour
     private void UpdatePlayerBaseHealth(int newBaseHealth)
     {
         playerBaseHealthBarSlider.value = newBaseHealth;
+    }
+
+    private void UpdateTimer()
+    {
+        float time = Time.time - startTime;
+        float minutes = Mathf.Floor(time / 60);
+        float seconds = Mathf.RoundToInt(time % 60);
+
+        if (seconds < 10)
+        {
+            timerText.text = minutes.ToString() + ":0" + seconds.ToString();
+        }
+        else
+        {
+            timerText.text = minutes.ToString() + ":" + seconds.ToString();
+        }
     }
 }
