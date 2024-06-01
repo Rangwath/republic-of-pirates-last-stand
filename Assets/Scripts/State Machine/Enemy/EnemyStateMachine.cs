@@ -41,6 +41,11 @@ public class EnemyStateMachine : StateMachine
         SwitchState(new EnemyIdleState(this));
     }
 
+    public void SetTarget(Transform target)
+    {
+        Target = target;
+    }
+
     public void ResetCannonReadyTime()
     {
         CannonReadyTime = Time.time + CannonCooldown;
