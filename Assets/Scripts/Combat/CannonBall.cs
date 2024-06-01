@@ -4,27 +4,26 @@ public class CannonBall : MonoBehaviour
 {
     [SerializeField] private float timeToLive = 3f;
 
+    private const int SORTING_ORDER_DECREASE = 10;
+
     private int damageAmount;
 
     private Rigidbody2D rigidBody;
+    private SpriteRenderer spriteRenderer;
+    private TrailRenderer trailRenderer;
+    // private Renderer[] renderers;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
+        // renderers = GetComponentsInChildren<Renderer>();
     }
 
     private void Start()
     {
         Destroy(gameObject, timeToLive);
-    }
-
-    public void Fire(int cannonDamage, float cannonForce, Vector2 shipVelocity)
-    {
-        damageAmount = cannonDamage;
-
-        Vector2 initialVelocity = (Vector2) transform.up * cannonForce + shipVelocity;
-
-        rigidBody.AddForce(initialVelocity, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,5 +46,25 @@ public class CannonBall : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Fire(int cannonDamage, float cannonForce, Vector2 shipVelocity, int sortingLayerID, int sortingOrder)
+    {
+        AssignSortingIDToAllRenderers(sortingLayerID, sortingOrder);
+
+        damageAmount = cannonDamage;
+
+        Vector2 initialVelocity = (Vector2) transform.up * cannonForce + shipVelocity;
+
+        rigidBody.AddForce(initialVelocity, ForceMode2D.Impulse);
+    }
+
+    private void AssignSortingIDToAllRenderers(int sortingLayerID, int sortingOrder)
+    {
+        spriteRenderer.sortingLayerID = sortingLayerID;
+        spriteRenderer.sortingOrder = sortingOrder - SORTING_ORDER_DECREASE;
+        
+        trailRenderer.sortingLayerID = sortingLayerID;
+        trailRenderer.sortingOrder = sortingOrder - (SORTING_ORDER_DECREASE * 2);
     }
 }
