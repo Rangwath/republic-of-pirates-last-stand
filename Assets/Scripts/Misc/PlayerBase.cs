@@ -9,6 +9,8 @@ public class PlayerBase : MonoBehaviour
     public static event Action OnPlayerBaseDestroyed;
     public static event Action<int> OnPlayerBaseHealthChanged;
 
+    [SerializeField] private GameObject destroyedBasePrefab;
+
     private Health health;
 
     private void Awake()
@@ -43,6 +45,8 @@ public class PlayerBase : MonoBehaviour
     {
         print(gameObject.name + " : Destroyed");
         OnPlayerBaseDestroyed?.Invoke();
+
+        Instantiate(destroyedBasePrefab, transform.position, transform.rotation);
     }
 
     private void HandleBaseHealthChanged(int newBaseHealth)

@@ -53,9 +53,6 @@ TagManager:
   - name: Player
     uniqueID: 908529707
     locked: 0
-  - name: CannonBall
-    uniqueID: 3445228829
-    locked: 0
   - name: VFX
     uniqueID: 3506535703
     locked: 0
