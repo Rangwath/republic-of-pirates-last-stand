@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
 
     private float rightCannonsReadyTime = 0f;
     private float leftCannonsReadyTime = 0f;
+    private bool canPlayerControl = true;
 
     private PlayerInput playerInput;
     private FrameInput frameInput;
-    private Movement movement;
+    private PlayerMovement movement;
     private Rigidbody2D rigidBody;
     private Health health;
 
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }
 
         playerInput = GetComponent<PlayerInput>();
-        movement = GetComponent<Movement>();
+        movement = GetComponent<PlayerMovement>();
         rigidBody = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
     }
@@ -46,19 +47,27 @@ public class PlayerController : MonoBehaviour
     {
         health.OnDeath += HandlePlayerDeath;
         health.OnHealthChanged += HandlePlayerHealthChanged;
+
+        GameManager.OnGameOver += StopPlayerControls;
     }
 
     private void OnDisable()
     {
         health.OnDeath -= HandlePlayerDeath;
         health.OnHealthChanged -= HandlePlayerHealthChanged;
+
+        GameManager.OnGameOver -= StopPlayerControls;
     }
 
     private void Update()
     {
-        GatherInput();
+        if (canPlayerControl)
+        {
+            GatherInput();
+            ProcessFiring();
+        }
+
         ProcessMovement();
-        ProcessFiring();
     }
 
     private void GatherInput()
@@ -68,7 +77,14 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessMovement()
     {
-        movement.SetCurrentMovement(frameInput.Move);
+        if (canPlayerControl)
+        {
+            movement.SetCurrentMovement(frameInput.Move);
+        }
+        else
+        {
+            movement.SetCurrentMovement(Vector2.zero);
+        }
     }
 
     private void ProcessFiring()
@@ -101,5 +117,10 @@ public class PlayerController : MonoBehaviour
     private void HandlePlayerHealthChanged(int newPlayerHealth)
     {
         OnPlayerHealthChanged?.Invoke(newPlayerHealth);
+    }
+
+    private void StopPlayerControls()
+    {
+        canPlayerControl = false;
     }
 }
