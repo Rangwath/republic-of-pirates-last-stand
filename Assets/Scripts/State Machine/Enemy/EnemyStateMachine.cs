@@ -1,5 +1,6 @@
 using UnityEngine;
 using Pathfinding;
+using System.Linq.Expressions;
 
 public class EnemyStateMachine : StateMachine
 {
@@ -36,9 +37,16 @@ public class EnemyStateMachine : StateMachine
 
     private void Start()
     {
-        PlayerTransform = PlayerController.Instance.gameObject.transform;
-
-        SwitchState(new EnemyIdleState(this));
+        if (PlayerController.Instance != null)
+        {
+            PlayerTransform = PlayerController.Instance.gameObject.transform;
+            SwitchState(new EnemyIdleState(this));
+        }
+        else
+        {
+            // If Player is null, switch to Winning immediately
+            SwitchState(new EnemyWinningState(this));
+        }
     }
 
     public void SetTarget(Transform target)

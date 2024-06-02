@@ -13,6 +13,13 @@ public class EnemyMovingToTargetState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        if (stateMachine.Target == null)
+        {
+            // If the target was destroyed, switch to Winning
+            stateMachine.SwitchState(new EnemyWinningState(stateMachine));
+            return;
+        }
+        
         stateMachine.AI.destination = stateMachine.Target.position;
 
         RotateCannonTowardsTarget(stateMachine.Target);

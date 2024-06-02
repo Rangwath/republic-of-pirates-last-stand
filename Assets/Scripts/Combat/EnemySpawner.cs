@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     
     private float currentSpawnRate;
     private float elapsedTime = 0f;
+    private bool hasGameEnded = false;
 
     private void Start()
     {
@@ -29,13 +30,21 @@ public class EnemySpawner : MonoBehaviour
             currentSpawnRate = initialSpawnRate - (elapsedTime * spawnRateDecrease);
             currentSpawnRate = Mathf.Max(currentSpawnRate, minimumSpawnRate);
         }
+    }
 
-        // Debug.Log("Spawn Rate : " + currentSpawnRate);
+    private void OnEnable()
+    {
+        GameManager.OnGameOver += HandleGameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameOver -= HandleGameOver;
     }
 
     private IEnumerator SpawnEnemies()
     {
-        while (true)
+        while (!hasGameEnded || enemyTarget != null)
         {
             // Wait for the current spawn rate duration
             yield return new WaitForSeconds(currentSpawnRate);
@@ -48,5 +57,10 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
             enemy.GetComponent<EnemyStateMachine>().SetTarget(enemyTarget);
         }
+    }
+
+    private void HandleGameOver()
+    {
+        hasGameEnded = true;
     }
 }
