@@ -1822,6 +1822,7 @@ GameObject:
   - component: {fileID: 608547264}
   - component: {fileID: 608547266}
   - component: {fileID: 608547265}
+  - component: {fileID: 608547267}
   m_Layer: 5
   m_Name: End Game Panel
   m_TagString: Untagged
@@ -1894,6 +1895,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608547263}
   m_CullTransparentMesh: 1
+--- !u!114 &608547267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608547263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1f2bc964ef626439ed6290fb6f3056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typingSpeed: 0.025
+  introTextField: {fileID: 1767247101}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,7 +3501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1377257868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,8 +3515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 1
+  fadeMusicTime: 1.5
   soundsCollectionSO: {fileID: 11400000, guid: ea0ebc0cce076df4295b17c8f6580b70, type: 2}
-  currentMusic: {fileID: 0}
 --- !u!4 &1377257869
 Transform:
   m_ObjectHideFlags: 0
@@ -4668,8 +4683,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 8
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
