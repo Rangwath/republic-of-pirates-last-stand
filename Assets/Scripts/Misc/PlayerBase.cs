@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private GameObject destroyedBasePrefab;
 
     private Health health;
+    private CinemachineVirtualCamera virtualCamera;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class PlayerBase : MonoBehaviour
         }
 
         health = GetComponent<Health>();
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
     }
 
     private void OnEnable()
@@ -46,7 +49,8 @@ public class PlayerBase : MonoBehaviour
         print(gameObject.name + " : Destroyed");
         OnPlayerBaseDestroyed?.Invoke();
 
-        Instantiate(destroyedBasePrefab, transform.position, transform.rotation);
+        GameObject destroyedBase = Instantiate(destroyedBasePrefab, transform.position, transform.rotation);
+        virtualCamera.Follow = destroyedBase.transform;
     }
 
     private void HandleBaseHealthChanged(int newBaseHealth)

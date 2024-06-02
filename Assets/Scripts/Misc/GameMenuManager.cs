@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class GameMenuManager : MonoBehaviour
 
     private const string MAIN_MENU_SCENE_NAME = "MainMenuScene";
 
+    [SerializeField] private float endGamePanelDisplayDelay = 4f;
     [SerializeField] private GameObject endGamePanel;
 
     private void Awake()
@@ -26,12 +28,12 @@ public class GameMenuManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnGameOver += DisplayEndGamePanel;
+        GameManager.OnGameOver += HandleGameOver;
     }
 
     private void OnDisable()
     {
-        GameManager.OnGameOver -= DisplayEndGamePanel;
+        GameManager.OnGameOver -= HandleGameOver;
     }
 
     public void RestartCurrentScene()
@@ -45,8 +47,14 @@ public class GameMenuManager : MonoBehaviour
         SceneManager.LoadScene(MAIN_MENU_SCENE_NAME);
     }
 
-    private void DisplayEndGamePanel()
+    private void HandleGameOver()
     {
+        StartCoroutine(DisplayEndGamePanelWithDelay());
+    }
+
+    private IEnumerator DisplayEndGamePanelWithDelay()
+    {
+        yield return new WaitForSeconds(endGamePanelDisplayDelay);
         endGamePanel.SetActive(true);
     }
 }
