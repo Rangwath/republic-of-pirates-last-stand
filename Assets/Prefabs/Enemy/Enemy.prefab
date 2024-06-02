@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 5746543663931511934}
   - component: {fileID: 552882420675568688}
   - component: {fileID: 8068809075874945471}
+  - component: {fileID: 1737538188475556308}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -337,7 +338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5666346163629743824}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -18.79, y: -11.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -566,6 +567,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowDamageSprite: {fileID: 21300000, guid: bc9071747a896834b82510e5d424842f, type: 3}
   highDamageSprite: {fileID: 21300000, guid: 90b4e8c57c1446441a12aa687de4a690, type: 3}
+--- !u!114 &1737538188475556308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666346163629743824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700e0c4ceffba74489fc45f19209f344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wreckPrefab: {fileID: 862136627805087490, guid: 06df0b61097bb234883bb78a63cdfb86, type: 3}
 --- !u!1001 &1067027065253743661
 PrefabInstance:
   m_ObjectHideFlags: 0

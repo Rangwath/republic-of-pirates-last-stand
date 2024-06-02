@@ -11,14 +11,12 @@ public class CannonBall : MonoBehaviour
     private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
-    // private Renderer[] renderers;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         trailRenderer = GetComponentInChildren<TrailRenderer>();
-        // renderers = GetComponentsInChildren<Renderer>();
     }
 
     private void Start()

@@ -5645,6 +5645,7 @@ GameObject:
   - component: {fileID: 1911656203}
   - component: {fileID: 1911656204}
   - component: {fileID: 1911656205}
+  - component: {fileID: 1911656206}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -5823,6 +5824,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowDamageSprite: {fileID: 21300000, guid: c34e4c3d42525d44e9ff8cefbe7abfda, type: 3}
   highDamageSprite: {fileID: 21300000, guid: 48a3e34b6cdc0d041931bec3f8925a4a, type: 3}
+--- !u!114 &1911656206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911656196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700e0c4ceffba74489fc45f19209f344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wreckPrefab: {fileID: 862136627805087490, guid: b46a34018f6a479499a784dfe9ce065e, type: 3}
 --- !u!1 &1950826455
 GameObject:
   m_ObjectHideFlags: 0

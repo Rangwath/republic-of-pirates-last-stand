@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Hitable : MonoBehaviour, IHitable
 {
-    public static event Action OnWoodHit;
-    public static event Action OnStoneHit;
+    public static Action OnWoodHit;
+    public static Action OnStoneHit;
 
     [SerializeField] private GameObject explosionPrefab;
 
