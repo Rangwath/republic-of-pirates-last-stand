@@ -26,12 +26,12 @@ public class GameMenuManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnEnemyWin += DisplayEndGamePanel;
+        GameManager.OnGameOver += DisplayEndGamePanel;
     }
 
     private void OnDisable()
     {
-        GameManager.OnEnemyWin -= DisplayEndGamePanel;
+        GameManager.OnGameOver -= DisplayEndGamePanel;
     }
 
     public void RestartCurrentScene()

@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     // Singleton instance
     public static GameManager Instance { get; private set; }
 
-    public static event Action OnEnemyWin;
+    public static event Action OnGameStart;
+    public static event Action OnGameOver;
 
     [field: SerializeField] public LayerMask WoodImpactLayer { get; private set; }
     [field: SerializeField] public LayerMask StoneImpactLayer { get; private set; }
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        OnGameStart?.Invoke();
         UpdateScore(0);
         startTime = Time.time;
     }
@@ -54,10 +56,10 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerController.OnPlayerDeath += HandleEnemyWin;
+        PlayerController.OnPlayerDeath += HandleGameOver;
         PlayerController.OnPlayerHealthChanged += UpdatePlayerHealth;
         
-        PlayerBase.OnPlayerBaseDestroyed += HandleEnemyWin;
+        PlayerBase.OnPlayerBaseDestroyed += HandleGameOver;
         PlayerBase.OnPlayerBaseHealthChanged += UpdatePlayerBaseHealth;
         
         Health.OnScoreUpdated += UpdateScore;
@@ -65,23 +67,23 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerController.OnPlayerDeath -= HandleEnemyWin;
+        PlayerController.OnPlayerDeath -= HandleGameOver;
         PlayerController.OnPlayerHealthChanged -= UpdatePlayerHealth;
         
-        PlayerBase.OnPlayerBaseDestroyed -= HandleEnemyWin;
+        PlayerBase.OnPlayerBaseDestroyed -= HandleGameOver;
         PlayerBase.OnPlayerBaseHealthChanged -= UpdatePlayerBaseHealth;
         
         Health.OnScoreUpdated -= UpdateScore;
     }
 
-    private void HandleEnemyWin()
+    private void HandleGameOver()
     {
-        Debug.Log("Enemies Won");
+        Debug.Log("Game Over");
         hasGameEnded = true;
         finalScoreText.text = scoreText.text;
         finalTimerText.text = timerText.text;
 
-        OnEnemyWin?.Invoke();
+        OnGameOver?.Invoke();
     }
 
     private void UpdateScore(int scoreToAdd)

@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
             currentSpawnRate = Mathf.Max(currentSpawnRate, minimumSpawnRate);
         }
 
-        Debug.Log("Spawn Rate : " + currentSpawnRate);
+        // Debug.Log("Spawn Rate : " + currentSpawnRate);
     }
 
     private IEnumerator SpawnEnemies()

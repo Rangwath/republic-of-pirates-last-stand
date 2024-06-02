@@ -1298,7 +1298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1128071317}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467430173
 GameObject:
@@ -3297,40 +3297,6 @@ RectTransform:
   m_AnchoredPosition: {x: 594.15, y: -8.000015}
   m_SizeDelta: {x: 283.65, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1128071316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1128071317}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1128071317
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128071316}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1377257869}
-  - {fileID: 434472992}
-  - {fileID: 1171446306}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1130670608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1128071317}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1171446307
 MonoBehaviour:
@@ -3520,7 +3486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1377257868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,6 +3501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterVolume: 1
   soundsCollectionSO: {fileID: 11400000, guid: ea0ebc0cce076df4295b17c8f6580b70, type: 2}
+  currentMusic: {fileID: 0}
 --- !u!4 &1377257869
 Transform:
   m_ObjectHideFlags: 0
@@ -3548,7 +3515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1128071317}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1440814673
 GameObject:
@@ -7181,7 +7148,9 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 582015698}
   - {fileID: 811653927}
-  - {fileID: 1128071317}
+  - {fileID: 1377257869}
+  - {fileID: 434472992}
+  - {fileID: 1171446306}
   - {fileID: 2123730714}
   - {fileID: 570965483}
   - {fileID: 1911656197}

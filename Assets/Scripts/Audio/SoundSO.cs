@@ -5,6 +5,7 @@ public class SoundSO : ScriptableObject
 {
     public AudioClip Clip;
     public bool Loop = false;
+    public bool Music = false;
     public bool RandomizePitch = false;
     [Range(0f, 1f)]
     public float RandomPitchRangeModifier = 0.1f;

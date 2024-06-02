@@ -26,12 +26,12 @@ public class EnemyStateMachine : StateMachine
 
     private void OnEnable()
     {
-        GameManager.OnEnemyWin += HandleEnemyWin;
+        GameManager.OnGameOver += HandleEnemyWin;
     }
 
     private void OnDisable()
     {
-        GameManager.OnEnemyWin -= HandleEnemyWin;
+        GameManager.OnGameOver -= HandleEnemyWin;
     }
 
     private void Start()

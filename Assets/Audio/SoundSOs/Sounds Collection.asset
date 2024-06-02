@@ -15,3 +15,5 @@ MonoBehaviour:
   CannonFire: {fileID: 11400000, guid: 3ef7409ca201976438dc93b945d8cfc0, type: 2}
   CannonBallImpactWood: {fileID: 11400000, guid: 7bdb70f1d49f0b24d97b9444e1b1ef72, type: 2}
   CannonBallImpactStone: {fileID: 11400000, guid: e0fe44cd9ad32cc458cdbdce8a202df0, type: 2}
+  MenuMusic: {fileID: 11400000, guid: bd03c0484a8e7ef41a0bb8695a2fe3b5, type: 2}
+  GameOverMusic: {fileID: 11400000, guid: 5ec23dd944bdd034cada66740685be2e, type: 2}
