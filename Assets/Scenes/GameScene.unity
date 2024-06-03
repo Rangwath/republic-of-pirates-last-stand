@@ -627,6 +627,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48078330}
   m_CullTransparentMesh: 1
+--- !u!96 &145718855 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7487449457431840016, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
+  m_PrefabInstance: {fileID: 729683544}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &164759707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,6 +2049,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1737538188475556308, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
+      propertyPath: trailRenderer
+      value: 
+      objectReference: {fileID: 1976548677}
     - target: {fileID: 5666346163629743824, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -2482,6 +2491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1737538188475556308, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
+      propertyPath: trailRenderer
+      value: 
+      objectReference: {fileID: 145718855}
     - target: {fileID: 5666346163629743824, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -4511,6 +4524,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGamePanelDisplayDelay: 4
   endGamePanel: {fileID: 608547263}
+--- !u!96 &1183244789 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7487449457431840016, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
+  m_PrefabInstance: {fileID: 2125658514953504160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248562336
 GameObject:
   m_ObjectHideFlags: 0
@@ -9387,6 +9405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wreckPrefab: {fileID: 862136627805087490, guid: b46a34018f6a479499a784dfe9ce065e, type: 3}
+  trailRenderer: {fileID: 1492410615}
 --- !u!1 &1933561852
 GameObject:
   m_ObjectHideFlags: 0
@@ -10394,6 +10413,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1909530769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &1976548677 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7487449457431840016, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
+  m_PrefabInstance: {fileID: 627339181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986549791
 GameObject:
   m_ObjectHideFlags: 0
@@ -11414,6 +11438,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1737538188475556308, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
+      propertyPath: trailRenderer
+      value: 
+      objectReference: {fileID: 1183244789}
     - target: {fileID: 5666346163629743824, guid: 409b12db3de4ad946aee4b91f0e7337b, type: 3}
       propertyPath: m_Name
       value: Enemy

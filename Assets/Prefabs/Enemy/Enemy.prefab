@@ -552,7 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09c67dca5fcca042baf125f97b461a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailRenderer: {fileID: 7487449457431840016}
 --- !u!114 &8068809075874945471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wreckPrefab: {fileID: 862136627805087490, guid: 06df0b61097bb234883bb78a63cdfb86, type: 3}
+  trailRenderer: {fileID: 7487449457431840016}
 --- !u!1001 &1067027065253743661
 PrefabInstance:
   m_ObjectHideFlags: 0

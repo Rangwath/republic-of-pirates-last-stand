@@ -3,6 +3,7 @@ using UnityEngine;
 public class WreckSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject wreckPrefab;
+    [SerializeField] private TrailRenderer trailRenderer;
 
     private Health health;
 
@@ -23,6 +24,7 @@ public class WreckSpawner : MonoBehaviour
 
     private void SpawnWreck()
     {
-        Instantiate(wreckPrefab, transform.position, transform.rotation);
+        GameObject wreck = Instantiate(wreckPrefab, transform.position, transform.rotation);
+        trailRenderer.transform.SetParent(wreck.transform);
     }
 }
